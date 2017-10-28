@@ -4,6 +4,7 @@
   display: inline-block;
   text-align: center;
   margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .selectable {
@@ -41,7 +42,7 @@ img.charimg {
 
 h1 {
   font-size: 2em;
-  margin: 0px 0px 10px 0px;
+  text-decoration: underline;
 }
 
 h2 {
@@ -50,7 +51,10 @@ h2 {
 }
 
 body {
-  padding: 20px;
+  padding: 10px 20px 0px 20px;
+  background-image: url("../images/xwing.jpg");
+  background-position: right top;
+  background-size: cover;
 }
 
 #characters {
@@ -58,21 +62,23 @@ body {
 }
 
 .charimg {
-  width: 155px;
+  width: 145px;
 }
 
 .opponent .charimg {
-  width: 165px;
+  width: 155px;
 }
 
 #attackBtn, #resetBtn {
   padding: 6px 10px;
   border-radius: 5px;
+  border: 1px solid gray;
 }
 
 #attackBtn:enabled {
   color: white;
   background-color: red;
+  font-weight: bold;
 }
 
 #attackBtn:enabled:hover {
@@ -81,6 +87,7 @@ body {
 
 #resetBtn {
   background-color: #99ff99;
+  font-weight: bold;
 }
 
 #resetBtn:hover {
@@ -90,9 +97,13 @@ body {
 #textLog {
   margin-top: 20px;
   background-color: #cccccc;
-  border: 2px solid #ff9999;
+  border: 2px solid gray;
   width: 500px;
   height: 120px;
   padding: 0px 10px;
   overflow-y: auto;
+}
+
+#credits {
+  font-size: smaller;
 }

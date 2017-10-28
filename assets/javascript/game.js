@@ -1,7 +1,4 @@
 
-
-
-
 // List of characters and their properties
 
 var rey = {
@@ -10,7 +7,6 @@ var rey = {
   "attackPwr" : 7,
   "healthPts" : 150,
   "counterAtkPwr" : 7,
-  "classes" : "character selectable"
 }
 
 var vader = {
@@ -19,7 +15,6 @@ var vader = {
   "attackPwr" : 10,
   "healthPts" : 180,
   "counterAtkPwr" : 10,
-  "classes" : "character selectable"
 }
 
 var fett = {
@@ -28,7 +23,6 @@ var fett = {
   "attackPwr" : 9,
   "healthPts" : 200,
   "counterAtkPwr" : 9,
-  "classes" : "character selectable"
 }
 
 var obiwan = {
@@ -37,20 +31,14 @@ var obiwan = {
   "attackPwr" : 8,
   "healthPts" : 120,
   "counterAtkPwr" : 8,
-  "classes" : "character selectable"
 }
 
 var you = ""; // your character
 var them = ""; // your opponent
-// var defenders = []; // list of defenders
 var characters = [rey, vader, fett, obiwan];
 
 
-
-
 $(document).ready(function() {
-
-
 
   // At the start of the game, you can pick any character
   $(".selectable").on("click", function() {
