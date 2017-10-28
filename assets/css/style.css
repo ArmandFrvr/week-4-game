@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Orbitron:700);
+
 .character {
   border: 2px solid black;
   padding: .2em 1.2em;
@@ -57,6 +59,9 @@ body {
   background-size: cover;
 }
 
+h1, h2, button, #credits, .character > p {
+    font-family: 'Orbitron', sans-serif;
+}
 #characters {
 
 }
