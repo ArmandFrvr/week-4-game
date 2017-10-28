@@ -40,6 +40,11 @@ var characters = [rey, vader, fett, obiwan];
 
 $(document).ready(function() {
 
+  // initialize health values
+  for(var i = 0; i < characters.length; i++) {
+    $("#" + characters[i].id + " > p.health").text(characters[i].healthPts);
+  }
+
   // At the start of the game, you can pick any character
   $(".selectable").on("click", function() {
 
