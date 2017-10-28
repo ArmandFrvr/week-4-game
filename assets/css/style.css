@@ -16,7 +16,7 @@
 }
 
 .selectable:hover {
-  border: 2px solid blue;
+  border: 2px solid #006600;
 }
 
 .enemy {
@@ -65,7 +65,7 @@ body {
   width: 165px;
 }
 
-#attackBtn {
+#attackBtn, #resetBtn {
   padding: 6px 10px;
   border-radius: 5px;
 }
@@ -79,8 +79,12 @@ body {
   background-color: #cc0000;
 }
 
-#attackBtn:disabled {
+#resetBtn {
+  background-color: #99ff99;
+}
 
+#resetBtn:hover {
+ background-color: #006600;
 }
 
 #textLog {

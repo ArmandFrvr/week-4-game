@@ -120,28 +120,30 @@ $(document).ready(function() {
       // if all enemies are dead, you win message
       if($("#enemies").is(":empty")) {
 
-        // replace attack button with restart button
-
+        writeMsg("Congratulations!  You have defeated all of the enemies!");
+        $("#attackBtn").remove();
+        $("#fight").append("<button id='resetBtn'>Reset</button>");
       }
-      else {
-        // just one enemy died, so remove them and add enemyHandlers to the others
+      else { // just one enemy died
 
         // remove them from the DOM
-
+        var theId = "#" + them.id;
+        $(theId).remove();
 
         them=""; // we no longer have a selected enemy
 
-        // disable the attack button
+        // disable the attack button until a new enemy is selected
         $("#attackBtn").prop("disabled", true);
 
-
         // add enemyHandlers for remaining enemies
+        $(".enemy").on("click", enemyHandler);
       }
-
     }
 
+    // if your health is 0 or below, you lose.
+    if(you.healthPts <= 0) {
 
-  // if your health is 0 or below, you lose.
+    }
 
 
   //if enemy's health is 0 or below, you win
@@ -152,7 +154,10 @@ $(document).ready(function() {
   //$("#textLog").animate({scrollTop: $("#textLog").prop("scrollHeight")}, 500);
 
 
-
+  // I'm lazy so the reset button just refreshes the page.  :3
+  $("#resetBtn").on("click", function() {
+    location.reload();
+  });
 
 
   });
