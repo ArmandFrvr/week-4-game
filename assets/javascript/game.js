@@ -104,6 +104,7 @@ $(document).ready(function() {
 
      // you attack first
     them.healthPts -= you.counterAtkPwr;
+    $("#" + them.id + " > p.health").text(them.healthPts);
     writeMsg("You attacked " + them.name + " for " + you.counterAtkPwr + " damage.");
 
     // increase your counterAtkPwr by your attackPwr base
@@ -112,13 +113,14 @@ $(document).ready(function() {
     // if the opponent isn't dead, they can attack back
     if(them.healthPts > 0) {
       you.healthPts -= them.counterAtkPwr;
+      $("#" + you.id + " > p.health").text(you.healthPts);
       writeMsg(them.name + " attacked you back for " + them.counterAtkPwr + " damage.");
     }
     else { // the opponent was dead and couldn't fight back
       writeMsg("You have defeated " + them.name + "!");
 
       // if all enemies are dead, you win message
-      if($("#enemies").is(":empty")) {
+      if($("#enemies").children().length < 1) {
 
         writeMsg("Congratulations!  You have defeated all of the enemies!");
         gameOver();
@@ -126,8 +128,7 @@ $(document).ready(function() {
       else { // just one enemy died
 
         // remove them from the DOM
-        var theId = "#" + them.id;
-        $(theId).remove();
+        $("#" + them.id).remove();
 
         them=""; // we no longer have a selected enemy
 
@@ -155,7 +156,7 @@ $(document).ready(function() {
   // Writes a message out to the combat log
   function writeMsg(msg) {
     $("#textLog").append("<p>" + msg + "</p>");
-    $("#textLog").animate({scrollTop: $("#textLog").prop("scrollHeight")}, 500);
+    $("#textLog").animate({scrollTop: $("#textLog").prop("scrollHeight")}, 300);
   }
 
   // Replaces the attack button with a reset button
