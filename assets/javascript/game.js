@@ -4,33 +4,33 @@
 var rey = {
   "name" : "Rey",
   "id" : "rey",
-  "attackPwr" : 7,
-  "healthPts" : 150,
-  "counterAtkPwr" : 7,
+  "attackPwr" : 12,
+  "healthPts" : 115,
+  "counterAtkPwr" : 12,
 }
 
 var vader = {
   "name" : "Darth Vader",
   "id" : "vader",
-  "attackPwr" : 10,
+  "attackPwr" : 25,
   "healthPts" : 180,
-  "counterAtkPwr" : 10,
+  "counterAtkPwr" : 25,
 }
 
 var fett = {
   "name" : "Boba Fett",
   "id" : "fett",
-  "attackPwr" : 9,
-  "healthPts" : 200,
-  "counterAtkPwr" : 9,
+  "attackPwr" : 20,
+  "healthPts" : 150,
+  "counterAtkPwr" : 20,
 }
 
 var obiwan = {
   "name" : "Obi-Wan Kenobi",
   "id" : "obiwan",
-  "attackPwr" : 8,
+  "attackPwr" : 10,
   "healthPts" : 120,
-  "counterAtkPwr" : 8,
+  "counterAtkPwr" : 10,
 }
 
 var you = ""; // your character
@@ -127,7 +127,7 @@ $(document).ready(function() {
 
     // if your health is 0 or below, you lose.
     if(you.healthPts <= 0) {
-      writeMsg("You have been defeated... GAME OVER!");
+      writeMsg("You have been defeated... GAME OVER!", "red", "bold");
       gameOver();
     }
 
