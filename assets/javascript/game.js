@@ -114,29 +114,26 @@ $(document).ready(function() {
     if(them.healthPts > 0) {
       you.healthPts -= them.counterAtkPwr;
       $("#" + you.id + " > p.health").text(you.healthPts);
-      writeMsg(them.name + " attacked you back for " + them.counterAtkPwr + " damage.");
+      writeMsg(them.name + " attacked you back for " + them.counterAtkPwr + " damage.", "red");
     }
     else { // the opponent was dead and couldn't fight back
-      writeMsg("You have defeated " + them.name + "!");
+      writeMsg(" > You have defeated " + them.name + "!", "#006600");
 
-      // if all enemies are dead, you win message
+      // remove them from the DOM
+      $("#" + them.id).remove();
+
+      them=""; // we no longer have a selected enemy
+
+      // disable the attack button until a new enemy is selected
+      $("#attackBtn").prop("disabled", true);
+
+      // add enemyHandlers for any remaining enemies
+      $(".enemy").on("click", enemyHandler);
+
+      // if all enemies are dead, display "you win" message
       if($("#enemies").children().length < 1) {
-
-        writeMsg("Congratulations!  You have defeated all of the enemies!");
+        writeMsg("Congratulations!  You have defeated all of the enemies!", "#006600", "bold");
         gameOver();
-      }
-      else { // just one enemy died
-
-        // remove them from the DOM
-        $("#" + them.id).remove();
-
-        them=""; // we no longer have a selected enemy
-
-        // disable the attack button until a new enemy is selected
-        $("#attackBtn").prop("disabled", true);
-
-        // add enemyHandlers for remaining enemies
-        $(".enemy").on("click", enemyHandler);
       }
     }
 
@@ -148,14 +145,19 @@ $(document).ready(function() {
 
   });
 
-  // I'm lazy so the reset button just refreshes the page.  :3
-  $("#resetBtn").on("click", function() {
-    location.reload();
-  });
 
   // Writes a message out to the combat log
-  function writeMsg(msg) {
-    $("#textLog").append("<p>" + msg + "</p>");
+  function writeMsg(msg, color, weight) {
+    if(!color) {
+      color = "black";
+    }
+
+    if(!weight) {
+      weight = "normal";
+    }
+
+    $("#textLog").append('<p' + ' style="color: ' + color +
+      '; font-weight: ' + weight + '">' + msg + "</p>");
     $("#textLog").animate({scrollTop: $("#textLog").prop("scrollHeight")}, 300);
   }
 
@@ -163,6 +165,11 @@ $(document).ready(function() {
   function gameOver() {
     $("#attackBtn").remove();
     $("#fight").append("<button id='resetBtn'>Reset</button>");
+
+    // I'm lazy so the reset button just refreshes the page.  :3
+    $("#resetBtn").on("click", function() {
+      location.reload();
+    });
   }
 
 });
