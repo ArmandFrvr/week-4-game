@@ -1,0 +1,94 @@
+.character {
+  border: 2px solid black;
+  padding: .2em 1.2em;
+  display: inline-block;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.selectable {
+  background-color: #99ff99;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #006600;
+}
+
+.selectable:hover {
+  border: 2px solid blue;
+}
+
+.enemy {
+  background-color: #ff9999;
+}
+
+.opponent {
+  background-color: #cc0000;
+}
+
+p.name {
+  padding-bottom: .1em;
+}
+
+p.health {
+  padding-top: .1em;
+}
+
+img.charimg {
+  border: 1px solid black;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0px 0px 10px 0px;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin: 8px 0px;
+}
+
+body {
+  padding: 20px;
+}
+
+#characters {
+
+}
+
+.charimg {
+  width: 155px;
+}
+
+.opponent .charimg {
+  width: 165px;
+}
+
+#attackBtn {
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+
+#attackBtn:enabled {
+  color: white;
+  background-color: red;
+}
+
+#attackBtn:enabled:hover {
+  background-color: #cc0000;
+}
+
+#attackBtn:disabled {
+
+}
+
+#textLog {
+  margin-top: 20px;
+  background-color: #cccccc;
+  border: 2px solid #ff9999;
+  width: 500px;
+  height: 75px;
+  padding: 20px;
+  overflow-y: auto;
+}
