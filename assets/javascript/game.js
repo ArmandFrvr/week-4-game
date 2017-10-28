@@ -121,8 +121,7 @@ $(document).ready(function() {
       if($("#enemies").is(":empty")) {
 
         writeMsg("Congratulations!  You have defeated all of the enemies!");
-        $("#attackBtn").remove();
-        $("#fight").append("<button id='resetBtn'>Reset</button>");
+        gameOver();
       }
       else { // just one enemy died
 
@@ -142,32 +141,27 @@ $(document).ready(function() {
 
     // if your health is 0 or below, you lose.
     if(you.healthPts <= 0) {
-
+      writeMsg("You have been defeated... GAME OVER!");
+      gameOver();
     }
 
-
-  //if enemy's health is 0 or below, you win
-// You attacked [] for x damage.
-// [] attacked you back for y damage.
-
-  //$("#textLog").append("<p>Sometext</p>");
-  //$("#textLog").animate({scrollTop: $("#textLog").prop("scrollHeight")}, 500);
-
+  });
 
   // I'm lazy so the reset button just refreshes the page.  :3
   $("#resetBtn").on("click", function() {
     location.reload();
   });
 
+  // Writes a message out to the combat log
+  function writeMsg(msg) {
+    $("#textLog").append("<p>" + msg + "</p>");
+    $("#textLog").animate({scrollTop: $("#textLog").prop("scrollHeight")}, 500);
+  }
 
-  });
-
-// Writes a message out to the combat log
-function writeMsg(msg) {
-  $("#textLog").append("<p>" + msg + "</p>");
-  $("#textLog").animate({scrollTop: $("#textLog").prop("scrollHeight")}, 500);
-}
-
-
+  // Replaces the attack button with a reset button
+  function gameOver() {
+    $("#attackBtn").remove();
+    $("#fight").append("<button id='resetBtn'>Reset</button>");
+  }
 
 });
