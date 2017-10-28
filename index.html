@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Star Wars Game</title>
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/javascript/game.js"></script>
+</head>
+
+<body>
+
+  <h1>Star Wars Game</h1>
+  <br>
+
+  <h2>Your Character:</h2>
+  <div id="characters">
+
+    <div class="character selectable" id="rey">
+      <p class="name">Rey</p>
+      <img class="charimg" src="assets/images/rey.png">
+      <p class="health">120</p>
+    </div>
+
+    <div class="character selectable" id="vader">
+      <p class="name">Darth Vader</p>
+      <img class="charimg" src="assets/images/vader.png">
+      <p class="health">120</p>
+    </div>
+
+    <div class="character selectable" id="obiwan">
+      <p class="name">Obi-Wan Kenobi</p>
+      <img class="charimg" src="assets/images/obiwan.png">
+      <p class="health">120</p>
+    </div>
+
+    <div class="character selectable" id="fett">
+      <p class="name">Boba Fett</p>
+      <img class="charimg" src="assets/images/fett.png">
+      <p class="health">120</p>
+    </div>
+
+  </div>
+
+  <br>
+  <h2>Enemies Available to Attack:</h2>
+  <div id="enemies">
+  </div>
+
+  <br>
+  <h2>Fight!</h2>
+  <div id="fight">
+
+    <button id="attackBtn" disabled>Attack</button>
+  </div>
+
+  <div id="textLog">
+
+  </div>
+
+
+</body>
+
+
+</html>
